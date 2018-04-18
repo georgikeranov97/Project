@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="bg">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!--    <link href="style/style.css" rel="stylesheet">-->
+    <title>Weather Forecast</title>
+    <style>
+        body{
+            background-color: #f8f9fa;;
+        }
+        #main-nav{
+            background-color: #c65050;
+        }
+        span {
+            font-weight: bold;
+            font-size: 1.2em
+        }
+
+        .img-container {
+            height: 150px;
+            width: 238px;
+        }
+
+        .images {
+            width: 800px;
+            height: 350px;
+        }
+
+        .crs {
+            width: 850px;
+            height: 350px;
+        }
+
+        #main-page {
+            display: flex;
+            justify-content: center;
+        }
+
+        .styleCard {
+            margin-left: 15px;
+            margin-top: 20px;
+        }
+
+        .forecast {
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+            border-right: 1px solid;
+            border-color: #dee2e6;
+            border-bottom-left-radius: .25rem;
+            border-bottom-right-radius: .25rem;
+            color: #495057;
+            height: 150px;
+        }
+        h2{
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <nav id="main-nav" class="navbar navbar-expand-lg navbar-light fixed-top">
+            <a class="navbar-brand" href="#main-page" data-target="#main-page">START</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#main-page" data-target="#main-page">Начало <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#wind" data-target="#wind">Вятър <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#tomorrow" data-target="#tomorrow">Утре <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#nextdays" data-target="#nextdays">Следващите дни <span class="sr-only">(current)</span></a>
+                    </li>
+                     <li class="nav-item active">
+                        <a class="nav-link" href="#about" data-target="#about">За мен<span class="sr-only">(current)</span></a>
+                    </li>
+                   
+                </ul>
+    
+            </div>
+        </nav>
+
+    </header>
+
+    <main class="container mt-5">
+        <div class="row" id="main-page">
+
+            <!--       <canvas id="myChart"></canvas>-->
+            <div class="col-lg-3">
+                <h1 class="my-4">Page name</h1>
+                <div class="list-group" id="category-filter">
+                    <a href="#" data-category="city" class="list-group-item">Големи градове</a>
+                    <a href="#" data-category="sea" class="list-group-item">Черноморие</a>
+                    <a href="#" data-category="all" class="list-group-item">Всички градове</a>
+                    <a href="#today" data-target="#today" class="list-group-item">Текстова прогноза</a>
+                    
+                </div>
+                
+                <h2>Източници</h2>
+                <div class="list-group">
+                    <a href="http://old.wetterzentrale.de" class="list-group-item" target="_blank">Wetterzentrale</a>
+                    <a href="https://www.weatheronline.co.uk/cgi-bin/expertcharts?LANG=en&MENU=0000000000&CONT=trtr&MODELL=euro4&MODELLTYP=1&BASE=-&VAR=tmp2&HH=3&ARCHIV=0&ZOOM=0&PERIOD=&WMO=" class="list-group-item" target="_blank">EURO 4</a>
+                    <a href="https://www.weatheronline.co.uk/cgi-bin/expertcharts?LANG=en&MENU=0000000000&CONT=trtr&MODELL=gfs&MODELLTYP=1&VAR=tmp2&HH=3&BASE=-&WMO=&ZOOM=0" class="list-group-item" target="_blank">GFS</a>
+                    <a href="https://www.windy.com/?42.683,23.317,5" class="list-group-item" target="_blank">WINDYTV</a>
+                </div>
+
+            </div>
+
+            <div class="col-lg-9">
+                <div class="container row mt-4">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                        </ol>
+                        <div class="carousel-inner images" role="listbox">
+                            <div class="carousel-item active">
+                                <img class="d-block crs" src="img_1/spring%20(1).jpg" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block crs" src="img_1/summer.jpg" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block crs" src="img_1/autumn.jpg" alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block crs" src="img_1/winter.jpg" alt="Fourth slide">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="row" id="city-container">
+                </div>
+                <article id="article">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">България</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Черноморие</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content forecast" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">През нощта заоблачаването ще продължава. През деня ще преобладава облачно време, в следобедните часове на места в западните и планинските райони ще превали крткотраен дъжд, възможно е и да прегърми. Ще духа умерен вятър от източната четвърт. Максималните темпереатури ще са предимно от 17 до 24 градуса, малко по-ниски ще се задържат по крайбрежието на морето. Атмосферното налягане ще бъде малко над средното.</div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">По Черноморието през нощта и рано сутринта все още по южното крайбрежие ще има мъгла, но през деня бързо ще се разсее и там. Ще има променлива, често значителна облачност. Ще духа умерен вятър от изток. Максималните температури ще са 13-14 градуса. Вълнението на морето ще бъде 2-3 бала, а температуарата на морската вода ще е 11-13 градуса.</div>
+                    </div>
+
+                </article>
+            </div>
+        </div>
+        <div id="wind">
+        </div>
+        <div id="tomorrow">
+        </div>
+        <div id="nextdays">
+        </div>
+        <div id="about">
+        </div>
+    </main>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>-->
+    <script src="script/script.js"></script>
+    <script src="script/navigation.js"></script>
+</body>
+</html>
