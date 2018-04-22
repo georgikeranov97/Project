@@ -19,8 +19,8 @@
               <thead>
                 <tr>
                   <th scope="col">Hour</th>
-                  <th scope="col">Speed at 13.04</th>
-                  <th scope="col">Speed at 14.04</th>
+                  <th scope="col">Speed at 24.04</th>
+                  <th scope="col">Speed at 25.04</th>
                 </tr>
               </thead>
               <tbody>

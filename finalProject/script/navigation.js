@@ -23,9 +23,9 @@
 //    });
     
     $('[data-target="#main-page"]').click();
-    $("#today").load("templates/_today.html");
     $("#tomorrow").load("templates/_tomorrow.html");
     $("#wind").load("templates/_wind.html");
     $("#nextdays").load("templates/_nextdays.html");
+    $("#about").load("templates/_about.html");
   
 })();
